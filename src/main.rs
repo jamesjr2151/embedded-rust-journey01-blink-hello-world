@@ -1,13 +1,3 @@
-// Cargo.toml
-[package]
-name = "esp32-blinky"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-esp-idf-hal = "0.42"
-esp-idf-sys = { version = "0.42", features = ["binstart"] }
-
 #![no_std]
 #![no_main]
 
@@ -30,16 +20,16 @@ fn main() -> ! {
     // Create delay utility
     let mut delay = Delay::new_default();
     
-    println!("🎯 ESP32 Blinky with Rust started!");
-    println!("💡 LED on GPIO2 will blink every 1 second");
+    println!("ESP32 Blinky with Rust started!");
+    println!("LED on GPIO2 will blink every 1 second");
     
     loop {
         led.set_high().unwrap();  // LED ON
-        println!("🔵 LED ON");
+        println!("LED ON");
         delay.delay_ms(1000u32);
         
         led.set_low().unwrap();   // LED OFF  
-        println!("⚫ LED OFF");
+        println!("LED OFF");
         delay.delay_ms(1000u32);
     }
 }
